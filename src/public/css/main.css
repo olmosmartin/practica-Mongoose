@@ -4,3 +4,5 @@ body{
     background: linear-gradient(to right, #F37335, #FDC830); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
+
+.jumbotron{background-color: #a6afc2!important;}
