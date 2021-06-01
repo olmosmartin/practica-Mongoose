@@ -1,11 +1,13 @@
 const express = require('express');
 const router = express.Router();
 
+const Nota=require('../modelo/Nota.js')
+
 router.get('/notas/agregar',(req, res)=>{
     res.render('notas/agregar.ejs', {errors: [], titulo:"", descripcion:""});
 })
 
-router.post('/notas/nuevanota',(req, res)=>{
+router.post('/notas/nuevanota', async(req, res)=>{
     //console.log(req.body);
     const {titulo, descripcion} = req.body;
     const errors=[];
@@ -19,7 +21,10 @@ router.post('/notas/nuevanota',(req, res)=>{
         console.log('errores')
         res.render('notas/agregar.ejs', {errors: errors, titulo:titulo, descripcion:descripcion});
     }else{
-        res.send('ok')
+        const nuevaNota = new Nota({titulo, descripcion});
+        await nuevaNota.save();
+        res.redirect('/notas')
+        /*res.send('ok');*/
     }
 })
 
