@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include ('../partials/head.ejs') %>
+        <title>Document</title>
+</head>
+
+<body>
+    <%- include ('../partials/nav.ejs') %>
+
+    <%- include ('../partials/mensajes.ejs') %>
+
+
+        <div class="container p-4">
+            <div class="row ">
+                <% if(notas.length==0){ %>
+
+                    <!--si no hay notas-->
+                    <div class="card mx-auto" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">No hay notas, agrega una:
+                            </h5>
+                            <div class="contairner">
+                                <div class="col text-center">
+                                    <a href="/notas/agregar" class="btn btn-success">Agregar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <% } %>
+
+                        <% notas.forEach(function(nota){ %>
+
+                            <!--card-->
+                            <div class="col-md-3">
+                                <div class="card mx-auto">
+                                    <div class="card-body">
+                                        <h5 class="card-title d-flex justify-content-between align-items-center">
+                                            <%= nota.titulo %> <a href="/notas/editar/<%=nota._id%>"><i class="fas fa-pencil-alt"></i></a>
+                                        </h5>
+
+                                        <p>
+                                            <%= nota.descripcion %>
+                                        </p>
+
+                                        <form action="/notas/eliminar/<%= nota._id %>?_method=DELETE" method="POST">
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <button type="submit" class="btn btn-danger btn-block">eliminar</button>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <%})%>
+
+
+            </div>
+        </div>
+
+        <%- include ('../partials/footer.ejs') %>
+</body>
+
+</html>

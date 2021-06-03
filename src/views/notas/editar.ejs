@@ -12,40 +12,30 @@
 
     <%- include ('../partials/mensajes.ejs') %>
 
-    <!--alertas-->
-    <% errors.forEach(function(error){ %>
-        <div class="container">
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <strong>ERROR</strong> <%= error.text %>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        </div>
-    <%}) %>
-    
+
     <!--card-->
     <div class="container p-4">
         <div class="card mx-auto" style="width: 18rem;">
             <div class="card-body">
             <h5 class="card-title">Card</h5>
             
-            <form class="mt-3" action="/notas/nuevanota" method="POST">
+            <form class="mt-3" action="/notas/editarNota/<%= nota._id %>?_method=PUT" method="POST">
+                <input type="hidden" name="_method" value="PUT">
                 <div class="form-group">
                     <label for="tit">Título</label>
-                    <input type="text" class="form-control" id="tit" name="titulo" placeholder="Título" >
+                    <input type="text" class="form-control" id="tit" name="titulo" value= "<%= nota.titulo %>" >
                 </div>
                 <div class="form-group mt-3">
                     <label for="desc">Descripción</label>
-                    <input rows="3" type="text" class="form-control" id="desc" name="descripcion" > 
+                    <input rows="3" type="text" class="form-control" id="desc" name="descripcion" value= "<%=nota.descripcion %>" > 
                 </div>
-                <button type="submit"  class="btn btn-primary btn-block mt-3">Enviar</button>
+                <button type="submit"  class="btn btn-primary btn-block mt-3">Guardar</button>
             </form>
 
             </div>
         </div>
     </div>
-
+    
     <%- include ('../partials/footer.ejs') %>
 </body>
 </html>
