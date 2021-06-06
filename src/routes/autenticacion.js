@@ -1,12 +1,26 @@
 const express = require('express');
 const router = express.Router();
-
 const Usuario = require('../modelo/Usuario.js')
+const passport = require('passport');
 
 
 router.get('/usuario/loguearse',(req, res)=>{
-    res.render('usuario/loguearse.ejs', {datos:"loguearse"});
+    res.render('usuario/loguearse.ejs', {errors: []});
 })
+
+/*
+router.post('/usuario/loguearse', async(req, res)=>{
+    const {email, contraseña} = req.body;
+    console.log(req.body);
+})
+*/
+
+router.post('/usuario/loguearse',passport.authenticate('local', {
+    successRedirect:'/notas/notas',
+    failureRedirect:'/usuario/loguearse',
+    failureFlash: true
+}));
+
 
 router.get('/usuario/registrarse',(req, res)=>{
 
