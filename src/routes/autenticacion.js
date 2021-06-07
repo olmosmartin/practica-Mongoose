@@ -55,4 +55,9 @@ router.post('/usuario/registrarse', async(req, res)=>{
     }
 })
 
+router.get('/usuario/logout',(req, res)=>{
+    req.logOut();
+    res.redirect('/')
+})
+
 module.exports=router

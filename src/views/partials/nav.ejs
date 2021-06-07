@@ -1,1 +1,33 @@
-<NAV>NAV</NAV>
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+    <ul class="nav justify-content-center">
+    <li class="nav-item">
+      <a class="nav-link" aria-current="page" href="../"><i class="fas fa-home"></i> Index</a>
+    </li>
+    
+    <%if ( user.email ) {%>
+        <li class="nav-item">
+        <a class="nav-link" href="../notas/notas"> <i class="fas fa-sticky-note"></i> Mis notas</a>
+        </li> 
+        <li class="nav-item">
+          <a class="nav-link" href="../notas/agregar"> <i class="fas fa-plus"></i> Nueva</a>
+          </li> 
+    <%}%>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+    <%if (!( user.email )) {%>
+    <li class="nav-item">
+      <a class="nav-link" href="../usuario/loguearse"> <i class="fas fa-sign-in-alt"></i> Sign In</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="../usuario/registrarse"> <i class="fas fa-user-plus"></i> Sign Up</a>
+    </li>
+    <%}%>
+    <%if ( user.email ) {%>
+    <li class="nav-item">
+        <a class="nav-link" href="../usuario/logout"> <i class="fas fa-sign-out-alt"></i> Salir</a>
+    </li>
+    <%}%>
+    </ul>
+    </div>
+</nav>

@@ -1,8 +1,26 @@
 body{
     background: #FDC830;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #F37335, #FDC830);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #F37335, #FDC830); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: -webkit-linear-gradient(to right, #a6aae2, #8930fd);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #3587f3, #309afd); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
 
-.jumbotron{background-color: #a6afc2!important;}
+.jumbotron{
+    background-color: #bdc5d6!important;
+    box-shadow: 5px 10px 20px 1px rgba(0, 0, 0, 0.273) !important;
+}
+
+.navbar{
+    background-color: rgb(209, 220, 240);
+}
+
+.card{
+    box-shadow: 5px 10px 20px 1px rgba(0, 0, 0, 0.273) !important;
+}
+.navbar{
+    box-shadow: 5px 10px 20px 1px rgba(0, 0, 0, 0.273) !important;
+}
+
+.btn{
+    box-shadow: 5px 10px 20px 1px rgba(0, 0, 0, 0.273) !important;
+}
